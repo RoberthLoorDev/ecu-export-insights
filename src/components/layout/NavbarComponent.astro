@@ -2,47 +2,80 @@
 import { Image } from "astro:assets";
 import { images } from "../../../public/images/images";
 
-import { optionsNavbar } from "../../config/navbarOptions"
-
+import { optionsNavbar } from "../../config/navbarOptions";
 ---
 
 <section
-  class="fixed h-full w-[350px] flex-col border-2 border-[#ECEFF5] px-[30px] pt-[30px]"
+  class="fixed flex h-full w-[350px] flex-col justify-between border-2 border-[#ECEFF5] px-[30px] pt-[30px]"
 >
-  <div class="flex justify-between">
-    <div class="flex items-center gap-3">
-      <Image src={images.iconNavbar} width={30} alt="Icon" />
-      <span class="text-2xl font-bold text-fontColor">EcuExport</span>
+  <div class="">
+    <div class="flex justify-between">
+      <div class="flex items-center gap-3">
+        <Image src={images.iconNavbar} width={30} alt="Icon" />
+        <span class="text-2xl font-bold text-fontColor">EcuExport</span>
+      </div>
+      <Image src={images.barsNavbar} width={30} alt="Alt" class="opacity-60" />
     </div>
-    <Image src={images.barsNavbar} width={30} alt="Alt" class="opacity-60" />
+
+    <span class="mb-4 mt-[30px] block text-tw-gray">MENÚ PRINCIPAL</span>
+
+    <!-- navbar options -->
+    <nav class="flex flex-col">
+      {
+        optionsNavbar.map((option) => (
+          <a
+            href={option.href}
+            class="option flex gap-2 rounded-lg px-3 py-3 text-[#818FA7] duration-200 hover:bg-primary-500 hover:text-white active:bg-primary-600"
+          >
+            <Image
+              src={option.image}
+              width={30}
+              alt="Alt"
+              class="icon-navbar"
+            />
+            <span class="font-normal">{option.title}</span>
+          </a>
+        ))
+      }
+    </nav>
   </div>
 
-  <span class="mb-4 mt-[30px] block text-tw-gray"
-    >MENÚ PRINCIPAL</span
+  <!-- user card -->
+  <a
+    href="https://portfolio-roberth.vercel.app/"
+    target="_blank"
+    class="relative mb-12 flex h-[80px] w-full cursor-pointer select-none items-center gap-6 rounded-xl p-4 shadow-2xl duration-200 hover:scale-105 hover:shadow-lg"
   >
-  <nav class="flex flex-col">
-     {
-          optionsNavbar.map((option)=>(
-               <a href={option.href} class="option flex gap-2 rounded-lg px-3 py-3 duration-200 hover:bg-primary-500 active:bg-primary-600 text-[#818FA7] hover:text-white">
-                    <Image src={option.image} width={30} alt="Alt" class="icon-navbar"/>
-                    <span class="font-normal ">{option.title}</span>
-                    
-                </a>
-          ))
-     }
+    <Image
+      class="h-[60px] rounded-full"
+      src={images.me}
+      width={60}
+      alt="Programador"
+    />
 
-  </nav>
+    <div class="flex flex-col">
+      <span class="text-lg font-bold text-fontColor">Roberth Loor</span>
+      <span class="-mt-1 text-tw-gray">Frontend Developer</span>
+    </div>
+
+    <Image
+      class="absolute right-3 top-3 rotate-45"
+      src={images.arrow}
+      width={22}
+      alt="Conoce más"
+    />
+  </a>
 </section>
 
 <style scoped>
-     .icon-navbar {
-       filter: brightness(0) invert(0.7);
-       transition: filter 0.3s ease;
-     }
-   
-     .option:hover{
-          .icon-navbar{
-            filter: brightness(0) invert(1);
-          }
-     }
-   </style>
+  .icon-navbar {
+    filter: brightness(0) invert(0.7);
+    transition: filter 0.3s ease;
+  }
+
+  .option:hover {
+    .icon-navbar {
+      filter: brightness(0) invert(1);
+    }
+  }
+</style>
