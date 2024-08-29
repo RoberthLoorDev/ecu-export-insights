@@ -1,63 +1,58 @@
 ---
+import MonthlyTrendsComponent from "../components/graphics/MonthlyTrendsComponent.astro";
 import CardResumeComponent from "../components/ui/CardResumeComponent.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="flex w-full flex-col p-7">
-    <h1 class="title-section text-2xl font-bold text-fontColor">
-      Descripción General
-    </h1>
+     <main class="flex w-full flex-col p-7">
+          <h1 class="title-section text-2xl font-bold text-fontColor">Descripción General</h1>
 
-    <!-- cards -->
-    <div class="cards-resume-container flex gap-2 overflow-x-auto pb-5">
-      <CardResumeComponent />
-      <CardResumeComponent />
-      <CardResumeComponent />
-      <CardResumeComponent />
-    </div>
+          <!-- cards -->
+          <div class="cards-resume-container flex gap-2 overflow-x-auto pb-5">
+               <CardResumeComponent />
+               <CardResumeComponent />
+               <CardResumeComponent />
+               <CardResumeComponent />
+          </div>
 
-    <!-- line and porcent graphic -->
-    <section class="mt-2 flex">
-      <div class="flex w-full gap-2">
-        <div
-          class="h-[400px] w-[70%] rounded-2xl border-2 border-[#E7EBF1] p-5"
-        >
-        </div>
-        <div class="h-400px w-[30%] rounded-2xl border-2 border-[#E7EBF1] p-5">
-        </div>
-      </div>
-    </section>
+          <!-- line and porcent graphic -->
+          <section class="mt-2 flex text-fontColor">
+               <div class="flex w-full gap-2">
+                    <MonthlyTrendsComponent />
+                    <div class="h-400px w-[30%] rounded-2xl border-2 border-[#E7EBF1] p-5"></div>
+               </div>
+          </section>
 
-    <!--  -->
-  </main>
+          <!--  -->
+     </main>
 </Layout>
 
 <style>
-  .title-section::after {
-    display: block;
-    content: "";
-    width: 100%;
-    height: 2px;
-    background-color: #e6e9eea9;
-    margin: 20px 0;
-  }
+     .title-section::after {
+          display: block;
+          content: "";
+          width: 100%;
+          height: 2px;
+          background-color: #e6e9eea9;
+          margin: 20px 0;
+     }
 
-  .cards-resume-container {
-    width: calc(100vw - 390px);
-  }
+     .cards-resume-container {
+          width: calc(100vw - 390px);
+     }
 
-  .cards-resume-container::-webkit-scrollbar {
-    height: 5px;
-  }
+     .cards-resume-container::-webkit-scrollbar {
+          height: 5px;
+     }
 
-  .cards-resume-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 6px;
-  }
+     .cards-resume-container::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 6px;
+     }
 
-  .cards-resume-container::-webkit-scrollbar-thumb {
-    background: #9593a9;
-    border-radius: 8px;
-  }
+     .cards-resume-container::-webkit-scrollbar-thumb {
+          background: #9593a9;
+          border-radius: 8px;
+     }
 </style>

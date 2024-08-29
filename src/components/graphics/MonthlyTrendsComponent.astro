@@ -1,0 +1,82 @@
+<div class="h-[500px] w-[70%] rounded-2xl border-2 border-[#E7EBF1] p-5">
+     <h3 class="">Tendencia de exportaciones mensuales</h3>
+
+     <div class="mt-5 flex gap-20">
+          <div class="flex gap-3">
+               <span class="text-red-400">⬤</span>
+               <div class="flex flex-col">
+                    <span> Ingresos totales </span>
+                    <span class="font-bold"
+                         >$32,499.90
+                         <span class="font-sm opacity-50">● 55%</span>
+                    </span>
+               </div>
+          </div>
+
+          <div class="flex gap-3">
+               <span class="text-red-400">⬤</span>
+               <div class="flex flex-col">
+                    <span> Ingresos totales </span>
+                    <span class="font-bold"
+                         >$32,499.90
+                         <span class="font-sm opacity-50">● 55%</span>
+                    </span>
+               </div>
+          </div>
+     </div>
+     <div class="relative mt-10 h-[315px] rounded-2xl" id="id-monthy-trend-container"></div>
+</div>
+
+<script>
+     import { createChart, ColorType } from "lightweight-charts";
+     import type { ChartOptions } from "lightweight-charts";
+
+     //@ts-ignore
+     const chartOptions: ChartOptions = {
+          layout: {
+               textColor: "#111729",
+               background: { type: ColorType.Solid, color: "white" },
+               attributionLogo: false,
+               fontFamily: "",
+               fontSize: 12,
+          },
+          autoSize: true,
+     };
+
+     const chartContainer = document.getElementById("id-monthy-trend-container")!;
+     const chart = createChart(chartContainer, chartOptions);
+
+     //first line
+     const lineSeries1 = chart.addLineSeries({ color: "#039de3" });
+     const data1 = [
+          { value: 0, time: "2022-01-17" },
+          { value: 8, time: "2022-01-18" },
+          { value: 10, time: "2022-01-19" },
+          { value: 20, time: "2022-01-20" },
+          { value: 3, time: "2022-01-21" },
+          { value: 43, time: "2022-01-22" },
+          { value: 41, time: "2022-01-23" },
+          { value: 43, time: "2022-01-24" },
+          { value: 56, time: "2022-01-25" },
+          { value: 46, time: "2022-01-26" },
+     ];
+     lineSeries1.setData(data1);
+
+     //second line
+     const lineSeries2 = chart.addLineSeries({ color: "#FF5722" });
+     const data2 = [
+          { value: 5, time: "2022-01-17" },
+          { value: 15, time: "2022-01-18" },
+          { value: 12, time: "2022-01-19" },
+          { value: 25, time: "2022-01-20" },
+          { value: 8, time: "2022-01-21" },
+          { value: 38, time: "2022-01-22" },
+          { value: 35, time: "2022-01-23" },
+          { value: 40, time: "2022-01-24" },
+          { value: 50, time: "2022-01-25" },
+          { value: 45, time: "2022-01-26" },
+     ];
+     lineSeries2.setData(data2);
+
+     chart.timeScale().fitContent();
+</script>
