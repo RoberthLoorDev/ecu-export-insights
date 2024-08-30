@@ -1,3 +1,4 @@
+import { set } from "astro/zod";
 import { data } from "../data/data";
 
 //Total exports (FOB) from January to August and its improvement
@@ -48,5 +49,32 @@ export const totalWeight = (actualMont: string) => {
     percentageWight,
     totalWeightPastMonth,
     totalWeightActualMonth,
+  };
+};
+
+export const getTotalUniqueItems = (actualMont: string) => {
+  const pastMonth = "02";
+  const uniqueItemsPastMonth = Array.from(
+    new Set(
+      data
+        .filter((item) => item.month === pastMonth)
+        .map((item) => item.CodeSubheading),
+    ),
+  ).length;
+
+  const uniqueItemsActualMonth = Array.from(
+    new Set(
+      data
+        .filter((item) => item.month === actualMont)
+        .map((item) => item.CodeSubheading),
+    ),
+  ).length;
+
+  const improvement = uniqueItemsActualMonth - uniqueItemsPastMonth;
+  const percentageUniqueItems = (improvement / uniqueItemsPastMonth) * 100;
+
+  return {
+    uniqueItemsActualMonth,
+    percentageUniqueItems,
   };
 };

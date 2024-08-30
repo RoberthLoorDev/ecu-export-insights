@@ -1,9 +1,10 @@
 ---
 import CardResumeComponent from "../components/ui/CardResumeComponent.astro";
-import { totalFOB, totalWeight } from "../utils/resumeUtils";
+import { totalFOB, totalWeight, getTotalUniqueItems } from "../utils/resumeUtils";
 
 const { countActualMonthData, percentage } = totalFOB("03");
 const { totalWeightActualMonth, percentageWight } = totalWeight("03");
+const { percentageUniqueItems, uniqueItemsActualMonth } = getTotalUniqueItems("03");
 ---
 
 <!-- cards -->
@@ -21,9 +22,9 @@ const { totalWeightActualMonth, percentageWight } = totalWeight("03");
      />
 
      <CardResumeComponent
-          title="Peso total exportado (TM) en el período: Febrero vs. Marzo"
-          quantity={totalWeightActualMonth.toFixed(3)}
-          percentage={Number(percentageWight.toFixed(3))}
+          title="Número de productos únicos exportados: Febrero vs. Marzo"
+          quantity={uniqueItemsActualMonth}
+          percentage={Number(percentageUniqueItems.toFixed(3))}
      />
 </seciton>
 
