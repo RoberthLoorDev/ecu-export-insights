@@ -1,13 +1,27 @@
-<div
-  class="flex h-[160px] w-[350px] min-w-[300px] flex-col justify-between rounded-2xl border-2 border-[#E7EBF1] p-5"
->
-  <span class="text-tw-gray">Total de exportaciones Agosto (FOB)</span>
-  <span class="text-3xl font-extrabold text-fontColor">$32,499.90</span>
-  <div class="flex items-center gap-2">
-    <span
-      class="block rounded-md bg-[#40a148] bg-opacity-25 p-1 text-xs font-semibold text-[#40a148]"
-      >↑ 12,96%</span
-    >
-    <span class="text-xs text-tw-gray">Comparado con el mes anterior</span>
-  </div>
+---
+interface Props {
+     title: string;
+     quantity: number | string;
+     percentage: number;
+}
+
+const { title, quantity, percentage } = Astro.props;
+const direction = percentage > 0 ? "↑" : "↓";
+---
+
+<div class="flex h-[160px] w-[350px] min-w-[300px] flex-col justify-between rounded-2xl border-2 border-[#E7EBF1] p-5">
+     <span class="text-tw-gray">{title} </span>
+     <span class="text-3xl font-extrabold text-fontColor">{quantity}</span>
+     <div class="flex items-center gap-2">
+          <span
+               class:list={[
+                    "bg-[#40a148] text-[#40a148]",
+                    {
+                         "bg-[#a14040] text-[#a14040]": percentage < 0,
+                    },
+               ]}
+               class="block rounded-md bg-opacity-25 p-1 text-xs font-semibold">{direction} {percentage}%</span
+          >
+          <span class="text-xs text-tw-gray">Comparado con el mes anterior</span>
+     </div>
 </div>
