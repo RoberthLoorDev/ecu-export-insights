@@ -1,20 +1,15 @@
 ---
 import MonthlyTrendsComponent from "../components/graphics/MonthlyTrendsComponent.astro";
+import ProductCategoriesMonth from "../components/graphics/ProductCategoriesMonth.astro";
 import CardResumeComponent from "../components/ui/CardResumeComponent.astro";
 import Layout from "../layouts/Layout.astro";
+import ResumeSection from "../sections/ResumeSection.astro";
 ---
 
 <Layout title="Welcome to Astro.">
      <main class="flex w-full flex-col p-7">
           <h1 class="title-section text-2xl font-bold text-fontColor">Descripción General</h1>
-
-          <!-- cards -->
-          <div class="cards-resume-container flex gap-2 overflow-x-auto pb-5">
-               <CardResumeComponent />
-               <CardResumeComponent />
-               <CardResumeComponent />
-               <CardResumeComponent />
-          </div>
+          <ResumeSection />
 
           <!-- line and porcent graphic -->
           <section class="mt-2 flex text-fontColor">
@@ -36,23 +31,5 @@ import Layout from "../layouts/Layout.astro";
           height: 2px;
           background-color: #e6e9eea9;
           margin: 20px 0;
-     }
-
-     .cards-resume-container {
-          width: calc(100vw - 390px);
-     }
-
-     .cards-resume-container::-webkit-scrollbar {
-          height: 5px;
-     }
-
-     .cards-resume-container::-webkit-scrollbar-track {
-          background: #f1f1f1;
-          border-radius: 6px;
-     }
-
-     .cards-resume-container::-webkit-scrollbar-thumb {
-          background: #9593a9;
-          border-radius: 8px;
      }
 </style>

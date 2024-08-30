@@ -1,0 +1,48 @@
+---
+import CardResumeComponent from "../components/ui/CardResumeComponent.astro";
+import { totalFOB, totalWeight } from "../utils/resumeUtils";
+
+const { countActualMonthData, percentage } = totalFOB("03");
+const { totalWeightActualMonth, percentageWight } = totalWeight("03");
+---
+
+<!-- cards -->
+<seciton class="cards-resume-container flex gap-2 overflow-x-auto pb-5">
+     <CardResumeComponent
+          title="Comparativo de Exportaciones: Febrero vs. Marzo"
+          quantity={countActualMonthData}
+          percentage={Number(percentage.toFixed(3))}
+     />
+
+     <CardResumeComponent
+          title="Peso total exportado (TM) en el período: Febrero vs. Marzo"
+          quantity={totalWeightActualMonth.toFixed(3)}
+          percentage={Number(percentageWight.toFixed(3))}
+     />
+
+     <CardResumeComponent
+          title="Peso total exportado (TM) en el período: Febrero vs. Marzo"
+          quantity={totalWeightActualMonth.toFixed(3)}
+          percentage={Number(percentageWight.toFixed(3))}
+     />
+</seciton>
+
+<style>
+     .cards-resume-container {
+          width: calc(100vw - 390px);
+     }
+
+     .cards-resume-container::-webkit-scrollbar {
+          height: 5px;
+     }
+
+     .cards-resume-container::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 6px;
+     }
+
+     .cards-resume-container::-webkit-scrollbar-thumb {
+          background: #9593a9;
+          border-radius: 8px;
+     }
+</style>
