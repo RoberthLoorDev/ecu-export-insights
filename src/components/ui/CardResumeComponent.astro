@@ -6,7 +6,8 @@ interface Props {
 }
 
 const { title, quantity, percentage } = Astro.props;
-const direction = percentage > 0 ? "↑" : "↓";
+const direction = percentage > 0 ? "↑" : percentage < 0 ? "↓" : "";
+const percentageSign = !isNaN(percentage) ? "%" : "";
 ---
 
 <div class="flex h-[160px] w-[350px] min-w-[300px] flex-col justify-between rounded-2xl border-2 border-[#E7EBF1] p-5">
@@ -15,12 +16,13 @@ const direction = percentage > 0 ? "↑" : "↓";
      <div class="flex items-center gap-2">
           <span
                class:list={[
-                    "bg-[#40a148] text-[#40a148]",
+                    "",
                     {
                          "bg-[#a14040] text-[#a14040]": percentage < 0,
+                         "bg-[#40a148] text-[#40a148]": percentage > 0,
                     },
                ]}
-               class="block rounded-md bg-opacity-25 p-1 text-xs font-semibold">{direction} {percentage}%</span
+               class="block rounded-md bg-opacity-25 p-1 text-xs font-semibold">{direction} {percentage}{percentageSign}</span
           >
           <span class="text-xs text-tw-gray">Comparado con el mes anterior</span>
      </div>
