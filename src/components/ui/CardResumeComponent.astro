@@ -2,28 +2,33 @@
 interface Props {
      title: string;
      quantity: number | string;
-     percentage: number;
+     percentage: number | string;
 }
 
 const { title, quantity, percentage } = Astro.props;
-const direction = percentage > 0 ? "↑" : percentage < 0 ? "↓" : "";
-const percentageSign = !isNaN(percentage) ? "%" : "";
+
+//if percentage is a number, then display the symbol
+const isNumber = typeof percentage === "number";
+const direction = isNumber ? (percentage > 0 ? "↑" : percentage < 0 ? "↓" : "") : "";
+const percentageSign = isNumber ? "%" : "";
+
+//if percentage is a number, to assign the styles
+const bgColorClass = isNumber
+     ? percentage < 0
+          ? "bg-[#a14040] text-[#a14040]"
+          : percentage > 0
+            ? "bg-[#40a148] text-[#40a148]"
+            : ""
+     : "";
 ---
 
 <div class="flex h-[160px] w-[350px] min-w-[300px] flex-col justify-between rounded-2xl border-2 border-[#E7EBF1] p-5">
      <span class="leading-5 text-tw-gray">{title} </span>
      <span class="text-3xl font-extrabold text-fontColor">{quantity}</span>
      <div class="flex items-center gap-2">
-          <span
-               class:list={[
-                    "",
-                    {
-                         "bg-[#a14040] text-[#a14040]": percentage < 0,
-                         "bg-[#40a148] text-[#40a148]": percentage > 0,
-                    },
-               ]}
-               class="block rounded-md bg-opacity-25 p-1 text-xs font-semibold">{direction} {percentage}{percentageSign}</span
-          >
+          <span class:list={["", bgColorClass]} class="block rounded-md bg-opacity-25 p-1 text-xs font-semibold"
+               >{direction} {percentage}{percentageSign}
+          </span>
           <span class="text-xs text-tw-gray">Comparado con el mes anterior</span>
      </div>
 </div>
