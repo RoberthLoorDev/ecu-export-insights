@@ -1,10 +1,11 @@
 ---
 import CardResumeComponent from "../components/ui/CardResumeComponent.astro";
-import { totalFOB, totalWeight, getTotalUniqueItems } from "../utils/resumeUtils";
+import { totalFOB, totalWeight, getTotalUniqueItems, getMainExportCategory } from "../utils/resumeUtils";
 
 const { countActualMonthData, percentage } = totalFOB("03");
 const { totalWeightActualMonth, percentageWight } = totalWeight("03");
 const { percentageUniqueItems, uniqueItemsActualMonth } = getTotalUniqueItems("03");
+const { mostExportedCategoryActualMonth, mostExportedCategoryPastMonth } = getMainExportCategory("03");
 ---
 
 <!-- cards -->
@@ -12,19 +13,25 @@ const { percentageUniqueItems, uniqueItemsActualMonth } = getTotalUniqueItems("0
      <CardResumeComponent
           title="Comparativo de Exportaciones: Febrero vs. Marzo"
           quantity={countActualMonthData}
-          percentage={Number(percentage.toFixed(3))}
+          percentage={Number(percentage.toFixed(2))}
      />
 
      <CardResumeComponent
           title="Peso total exportado (TM) en el período: Febrero vs. Marzo"
-          quantity={totalWeightActualMonth.toFixed(3)}
-          percentage={Number(percentageWight.toFixed(3))}
+          quantity={totalWeightActualMonth.toFixed(2)}
+          percentage={Number(percentageWight.toFixed(2))}
      />
 
      <CardResumeComponent
           title="Número de productos únicos exportados: Febrero vs. Marzo"
           quantity={uniqueItemsActualMonth}
-          percentage={Number(percentageUniqueItems.toFixed(3))}
+          percentage={Number(percentageUniqueItems.toFixed(2))}
+     />
+
+     <CardResumeComponent
+          title="Categoría principal de exportación: Febrero vs. Marzo"
+          quantity={mostExportedCategoryActualMonth || "Sin categoría"}
+          percentage={mostExportedCategoryPastMonth || "Sin categoría"}
      />
 </seciton>
 
