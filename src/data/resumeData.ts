@@ -1,5 +1,5 @@
 import { set } from "astro/zod";
-import { data } from "../data/data";
+import { data } from "./data";
 
 //Total exports (FOB) from January to August and its improvement
 export const totalFOB = (actualMonth: string) => {
@@ -136,7 +136,6 @@ export const getMainExportCategory = (actualMonth: string) => {
     }
   }
 
-  console.log(mostExportedCategoryActualMonth, mostExportedCategoryPastMonth);
 
   return {
     mostExportedCategoryPastMonth,

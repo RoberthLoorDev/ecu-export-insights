@@ -1,6 +1,6 @@
 ---
 import CardResumeComponent from "../components/ui/CardResumeComponent.astro";
-import { totalFOB, totalWeight, getTotalUniqueItems, getMainExportCategory } from "../utils/resumeUtils";
+import { totalFOB, totalWeight, getTotalUniqueItems, getMainExportCategory } from "../data/resumeData";
 
 const { countActualMonthData, percentage } = totalFOB("03");
 const { totalWeightActualMonth, percentageWight } = totalWeight("03");

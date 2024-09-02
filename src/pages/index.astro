@@ -4,21 +4,14 @@ import ProductCategoriesMonth from "../components/graphics/ProductCategoriesMont
 import CardResumeComponent from "../components/ui/CardResumeComponent.astro";
 import Layout from "../layouts/Layout.astro";
 import ResumeSection from "../sections/ResumeSection.astro";
+import StatisticsOverviewSection from "../sections/StatisticsOverviewSection.astro";
 ---
 
 <Layout title="Welcome to Astro.">
      <main class="flex w-full flex-col p-7">
           <h1 class="title-section text-2xl font-bold text-fontColor">Descripción General</h1>
           <ResumeSection />
-
-          <!-- line and porcent graphic -->
-          <section class="mt-2 flex text-fontColor">
-               <div class="flex w-full gap-2">
-                    <MonthlyTrendsComponent />
-                    <div class="h-400px w-[30%] rounded-2xl border-2 border-[#E7EBF1] p-5"></div>
-               </div>
-          </section>
-
+          <StatisticsOverviewSection />
           <!--  -->
      </main>
 </Layout>
