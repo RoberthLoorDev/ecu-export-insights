@@ -35,8 +35,15 @@ const amountPast = formattAmountsMoney(amountPastMonth);
           </div>
      </div>
 
-     <!-- graphic -->
-     <canvas id="id_montlyTrendLine" class="min-w-full p-10"></canvas>
+     <div class="relative">
+          <button
+               class="button-reset-zoom | absolute right-0 top-0 my-2 rounded-md border-2 border-[#eceff5] px-3 py-2 font-medium duration-150 hover:bg-[#f2f5fa] active:bg-[#e7ebf1]"
+               >Restablecer</button
+          >
+
+          <!-- graphic -->
+          <canvas id="id_montlyTrendLine" class="min-w-full p-10"> </canvas>
+     </div>
 </div>
 
 <script>
@@ -54,7 +61,7 @@ const amountPast = formattAmountsMoney(amountPastMonth);
      //drawing the graphic
      document.addEventListener("DOMContentLoaded", () => {
           const ctx = document.getElementById("id_montlyTrendLine") as HTMLCanvasElement;
-          new Chart(ctx, {
+          const chart = new Chart(ctx, {
                type: "line",
                data: {
                     labels: month1Chapter,
@@ -64,14 +71,16 @@ const amountPast = formattAmountsMoney(amountPastMonth);
                               data: month1Values,
                               borderColor: "#03aeeb",
                               borderWidth: 3,
-                              pointStyle: false,
+                              pointStyle: "circle",
+                              pointBorderWidth: 1,
                          },
                          {
                               label: "Ingresos: Marzo",
                               data: month2Values,
                               borderColor: "#EB862A",
                               borderWidth: 3,
-                              pointStyle: false,
+                              pointStyle: "circle",
+                              pointBorderWidth: 1,
                          },
                     ],
                },
@@ -116,6 +125,10 @@ const amountPast = formattAmountsMoney(amountPastMonth);
                          },
                     },
                },
+          });
+          //reset zoom graph
+          document.querySelector(".button-reset-zoom")?.addEventListener("click", () => {
+               chart.resetZoom();
           });
      });
 </script>
