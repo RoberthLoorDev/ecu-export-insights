@@ -37,7 +37,7 @@ const amountPast = formattAmountsMoney(amountPastMonth);
 
      <div class="relative">
           <button
-               class="button-reset-zoom | absolute right-0 top-0 my-2 rounded-md border-2 border-[#eceff5] px-3 py-2 font-medium duration-150 hover:bg-[#f2f5fa] active:bg-[#e7ebf1]"
+               class="button-reset-zoom | absolute right-0 top-0 rounded-md border-2 border-[#eceff5] px-3 py-2 font-medium duration-150 hover:bg-[#f2f5fa] active:bg-[#e7ebf1]"
                >Restablecer</button
           >
 
@@ -71,16 +71,16 @@ const amountPast = formattAmountsMoney(amountPastMonth);
                               data: month1Values,
                               borderColor: "#03aeeb",
                               borderWidth: 3,
-                              pointStyle: "circle",
-                              pointBorderWidth: 1,
+                              pointStyle: false,
+                              tension: 0.1,
                          },
                          {
                               label: "Ingresos: Marzo",
                               data: month2Values,
                               borderColor: "#EB862A",
                               borderWidth: 3,
-                              pointStyle: "circle",
-                              pointBorderWidth: 1,
+                              pointStyle: false,
+                              tension: 0.1,
                          },
                     ],
                },
@@ -93,6 +93,7 @@ const amountPast = formattAmountsMoney(amountPastMonth);
                                         size: 16,
                                    },
                               },
+                              position: "right",
                          },
                          x: {
                               beginAtZero: true,
@@ -110,7 +111,7 @@ const amountPast = formattAmountsMoney(amountPastMonth);
                     plugins: {
                          zoom: {
                               pan: {
-                                   enabled: true, // drag the graph with the mouse
+                                   enabled: true, // drag the graph with the mouse\
                               },
                               zoom: {
                                    wheel: {
