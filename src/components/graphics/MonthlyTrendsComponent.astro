@@ -34,21 +34,18 @@ const amountPast = formattAmountsMoney(amountPastMonth);
                </div>
           </div>
      </div>
+     <button
+          class="button-reset-zoom | mt-8 rounded-md border-2 border-[#eceff5] px-3 py-2 text-sm font-medium duration-150 hover:bg-[#f2f5fa] active:bg-[#e7ebf1]"
+          >Restablecer</button
+     >
 
-     <div class="relative">
-          <button
-               class="button-reset-zoom | absolute right-0 top-0 rounded-md border-2 border-[#eceff5] px-3 py-2 font-medium duration-150 hover:bg-[#f2f5fa] active:bg-[#e7ebf1]"
-               >Restablecer</button
-          >
-
-          <!-- graphic -->
-          <canvas id="id_montlyTrendLine" class="min-w-full p-10"> </canvas>
-     </div>
+     <canvas id="id_montlyTrendLine" class="-mt-5 max-h-[450px] min-w-full"></canvas>
 </div>
 
 <script>
      import { Chart } from "chart.js/auto";
      import { extractAmountAndChaptersMonth } from "../../data/MonthlyTrendsData";
+     import { addCustomTitleToolTip } from "../../utils/utils";
 
      //enable zoom
      import zoomPlugin from "chartjs-plugin-zoom";
@@ -70,7 +67,8 @@ const amountPast = formattAmountsMoney(amountPastMonth);
                               label: "Ingresos: Febrero",
                               data: month1Values,
                               borderColor: "#03aeeb",
-                              borderWidth: 3,
+                              backgroundColor: "#03aeeb",
+                              borderWidth: 2,
                               pointStyle: false,
                               tension: 0.1,
                          },
@@ -78,7 +76,8 @@ const amountPast = formattAmountsMoney(amountPastMonth);
                               label: "Ingresos: Marzo",
                               data: month2Values,
                               borderColor: "#EB862A",
-                              borderWidth: 3,
+                              backgroundColor: "#EB862A",
+                              borderWidth: 2,
                               pointStyle: false,
                               tension: 0.1,
                          },
@@ -109,6 +108,13 @@ const amountPast = formattAmountsMoney(amountPastMonth);
 
                     //zoom
                     plugins: {
+                         legend: {
+                              labels: {
+                                   font: {
+                                        size: 14,
+                                   },
+                              },
+                         },
                          zoom: {
                               pan: {
                                    enabled: true, // drag the graph with the mouse\
@@ -122,6 +128,20 @@ const amountPast = formattAmountsMoney(amountPastMonth);
                                    },
 
                                    mode: "xy",
+                              },
+                         },
+                         tooltip: {
+                              callbacks: {
+                                   title: function (context) {
+                                        return addCustomTitleToolTip(context, "Capítulo");
+                                   },
+                              },
+                              intersect: false,
+                              titleFont: {
+                                   size: 16,
+                              },
+                              bodyFont: {
+                                   size: 14,
                               },
                          },
                     },
