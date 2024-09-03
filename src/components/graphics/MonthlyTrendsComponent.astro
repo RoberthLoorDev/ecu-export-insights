@@ -43,6 +43,10 @@ const amountPast = formattAmountsMoney(amountPastMonth);
      import { Chart } from "chart.js/auto";
      import { extractAmountAndChaptersMonth } from "../../data/MonthlyTrendsData";
 
+     //enable zoom
+     import zoomPlugin from "chartjs-plugin-zoom";
+     Chart.register(zoomPlugin);
+
      //graph data 1 data
      const { chaptersArray: month1Chapter, valuesArray: month1Values } = extractAmountAndChaptersMonth("03");
      const { chaptersArray: month2Chapter, valuesArray: month2Values } = extractAmountAndChaptersMonth("02");
@@ -90,7 +94,27 @@ const amountPast = formattAmountsMoney(amountPastMonth);
                               },
                          },
                     },
+
                     responsive: true,
+
+                    //zoom
+                    plugins: {
+                         zoom: {
+                              pan: {
+                                   enabled: true, // drag the graph with the mouse
+                              },
+                              zoom: {
+                                   wheel: {
+                                        enabled: true, //zoom with que weel mouse
+                                   },
+                                   pinch: {
+                                        enabled: true,
+                                   },
+
+                                   mode: "xy",
+                              },
+                         },
+                    },
                },
           });
      });
