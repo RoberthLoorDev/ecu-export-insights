@@ -1,4 +1,5 @@
 import { data } from "../data/data";
+import { formattAmountsMoney } from "../utils/utils";
 
 export const getMostExportedProductsBar = (month: string) => {
   const monthData = data.filter((item) => month === item.month);
@@ -30,7 +31,12 @@ export const getMostExportedProductsBar = (month: string) => {
   const onlyCategories = increasedExports.map((item) => item.PPN4BCEDescrip);
   const onlyValues = increasedExports.map((item) => item.SumOfFOBThousands);
 
-  console.log(onlyCategories);
+  const onlyValuesFormattMoney = onlyValues.map((item) =>
+    formattAmountsMoney(item),
+  );
+
+  console.log(onlyValuesFormattMoney);
+  console.log(onlyValues);
 
   return {
     increasedExports,
