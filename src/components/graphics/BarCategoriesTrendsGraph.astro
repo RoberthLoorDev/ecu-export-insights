@@ -6,6 +6,8 @@
 <script>
      import { Chart } from "chart.js/auto";
      import { getMostExportedProductsBar } from "../../data/BarCategoriesTrendsData";
+     import { addCustomTitleToolTip } from "../../utils/utils";
+     import { formattAmountsMoney } from "../../utils/utils";
 
      const { onlyCategories, onlyValues } = getMostExportedProductsBar("03");
 
@@ -53,7 +55,15 @@
                          },
 
                          tooltip: {
+                              callbacks: {
+                                   label: function (context: any) {
+                                        return formattAmountsMoney(context.raw);
+                                   },
+                              },
                               intersect: false,
+                              titleFont: {
+                                   size: 16,
+                              },
                               bodyFont: {
                                    size: 14,
                               },
