@@ -8,8 +8,12 @@ interface Props {
 const { title, quantity, percentage } = Astro.props;
 
 //if percentage is a number, then display the symbol
+console.log(percentage);
 const isNumber = typeof percentage === "number";
-const direction = isNumber ? (percentage > 0 ? "↑" : percentage < 0 ? "↑" : "") : "";
+const direction = isNumber ? (percentage > 0 ? "↑" : percentage < 0 ? "↓" : "") : "";
+
+console.log(direction);
+
 const percentageSign = isNumber ? "%" : "";
 
 //if percentage is a number, to assign the styles
