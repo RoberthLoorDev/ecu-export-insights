@@ -14,6 +14,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.14.5",
     "chart.js": "^4.4.4",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "chartjs-plugin-zoom": "^2.0.1",
     "iconv-lite": "^0.6.3",
     "lightweight-charts": "^4.2.0",

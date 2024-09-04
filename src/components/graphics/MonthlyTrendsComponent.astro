@@ -8,24 +8,24 @@ const amountCurrent = formattAmountsMoney(amountCurrentMonth);
 const amountPast = formattAmountsMoney(amountPastMonth);
 ---
 
-<div class="w-[70%] rounded-2xl border-2 border-[#E7EBF1] p-5">
+<div class="w-[60%] rounded-2xl border-2 border-[#E7EBF1] p-5">
      <h3 class="">Tendencia de exportaciones mensuales</h3>
 
      <div class="mt-5 flex gap-20">
           <div class="flex gap-3">
-               <span class="text-[#EB862A]">⬤</span>
+               <span class="text-primary-500">⬤</span>
                <div class="flex flex-col">
                     <span> Ingresos totales: Febrero 2024 </span>
-                    <span class="font-bold">${amountPast} </span>
+                    <span class="font-bold">{amountPast} </span>
                </div>
           </div>
 
           <div class="flex gap-3">
-               <span class="text-primary-500">⬤</span>
+               <span class="text-[#EB862A]">⬤</span>
                <div class="flex flex-col">
                     <span> Ingresos totales: Marzo 2024 </span>
                     <span class="font-bold"
-                         >${amountCurrent}
+                         >{amountCurrent}
                          <span class="font-sm opacity-50">
                               {percentageDifference > 0 ? "↑" : percentageDifference < 0 ? "↑" : "⬤"}
                               {percentageDifference.toFixed(2)}%</span
