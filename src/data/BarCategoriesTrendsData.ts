@@ -35,9 +35,6 @@ export const getMostExportedProductsBar = (month: string) => {
     formattAmountsMoney(item),
   );
 
-  console.log(onlyValuesFormattMoney);
-  console.log(onlyValues);
-
   return {
     increasedExports,
     onlyCategories,
