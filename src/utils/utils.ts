@@ -6,6 +6,16 @@ export const formattAmountsMoney = (amount: number) => {
   return `${realValue.toLocaleString("en-US", { style: "currency", currency: "USD" })}`;
 };
 
+//formatt weight
+export const formattingLargeQuantities = (value: number) => {
+  const formattedValue = value.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
+  return formattedValue;
+};
+
 //add a custom title to the chart tooltip
 export const addCustomTitleToolTip = (
   context: TooltipItem<"line">[],

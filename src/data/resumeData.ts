@@ -136,7 +136,6 @@ export const getMainExportCategory = (actualMonth: string) => {
     }
   }
 
-
   return {
     mostExportedCategoryPastMonth,
     mostExportedCategoryActualMonth,
