@@ -6,8 +6,7 @@
 <script>
      import { Chart } from "chart.js/auto";
      import { getMostExportedProductsBar } from "../../data/BarCategoriesTrendsData";
-     import { addCustomTitleToolTip } from "../../utils/utils";
-     import { formattAmountsMoney } from "../../utils/utils";
+     import { formattAmountsMoney, abbreviateNumberAmount } from "../../utils/utils";
 
      const { onlyCategories, onlyValues } = getMostExportedProductsBar("03");
 
@@ -48,7 +47,11 @@
                     plugins: {
                          title: {
                               display: true,
-                              text: "Categorias",
+                              text: "Ingresos generados",
+                              font: {
+                                   size: 16,
+                                   weight: 600,
+                              },
                          },
                          legend: {
                               display: false,
@@ -74,6 +77,9 @@
                     scales: {
                          x: {
                               ticks: {
+                                   callback: function (value) {
+                                        return abbreviateNumberAmount(Number(value));
+                                   },
                                    font: {
                                         size: 16,
                                    },
