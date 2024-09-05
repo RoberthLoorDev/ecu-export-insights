@@ -14,18 +14,21 @@ const { mostExportedCategoryActualMonth, mostExportedCategoryPastMonth } = getMa
           title="Comparativo de Exportaciones: Febrero vs. Marzo"
           quantity={countActualMonthData}
           percentage={Number(percentage.toFixed(2))}
+          unit="Exportaciones"
      />
 
      <CardResumeComponent
           title="Peso total exportado (TM) en el período: Febrero vs. Marzo"
-          quantity={totalWeightActualMonth.toFixed(2)}
+          quantity={Number(totalWeightActualMonth.toFixed(2))}
           percentage={Number(percentageWight.toFixed(2))}
+          unit="Toneladas"
      />
 
      <CardResumeComponent
           title="Número de productos únicos exportados: Febrero vs. Marzo"
           quantity={uniqueItemsActualMonth}
           percentage={Number(percentageUniqueItems.toFixed(2))}
+          unit="Productos únicos"
      />
 
      <CardResumeComponent
