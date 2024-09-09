@@ -1,6 +1,13 @@
+---
+import PieTraditionalGraph from "./PieTraditionalGraph.astro";
+---
+
 <div class="flex w-[40%] flex-col rounded-2xl border-2 border-[#E7EBF1] p-5">
      <h3 class="">Categorías de productos mas exportados</h3>
-     <canvas id="id_monthlyBarsChart" class="w-full"></canvas>
+     <canvas id="id_monthlyBarsChart" class="max-h-[17rem]"></canvas>
+     <div class="relative flex justify-between">
+          <PieTraditionalGraph />
+     </div>
 </div>
 
 <script>
@@ -36,7 +43,8 @@
                                    "rgba(153, 102, 255, 0.7)",
                                    "rgba(255, 159, 64, 0.7)",
                               ],
-                              borderWidth: 3,
+
+                              borderWidth: 2,
                               borderRadius: 5,
                               barPercentage: 0.9,
                          },
