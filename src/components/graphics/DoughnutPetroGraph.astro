@@ -5,9 +5,9 @@
 
 <script>
      import { Chart } from "chart.js/auto";
-     import { getTradicionalData } from "../../data/PieTraditionalTrendsGraphData";
+     import { getPetroAndNoPetroData } from "../../data/PieTraditionalTrendsGraphData";
 
-     const { dataNoTraditional: countDataTraditional, dataTraditional: countDataNoTraditional } = getTradicionalData("03");
+     const { dataPetro: countDataPetro, dataNoPetro: countDataNoPetro } = getPetroAndNoPetroData("03");
 
      document.addEventListener("DOMContentLoaded", () => {
           const ctx = document.getElementById("id_montlhyDoughnutChart") as HTMLCanvasElement;
@@ -18,7 +18,7 @@
                     datasets: [
                          {
                               label: "Exportaciones: ",
-                              data: [countDataTraditional, countDataNoTraditional],
+                              data: [countDataPetro, countDataNoPetro],
                               backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"],
                               hoverOffset: 4,
                          },
