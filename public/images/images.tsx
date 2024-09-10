@@ -5,6 +5,7 @@ import iconProduct from "./icon-fish.png";
 import iconCategory from "./icon-category.png";
 import me from "./me.png";
 import arrow from "./icon-arrow.png";
+import iconOpenCloseNavbar from "./icon-open-navbar.png";
 
 export const images = {
   iconNavbar,
@@ -14,4 +15,5 @@ export const images = {
   iconProduct,
   me,
   arrow,
+  iconOpenCloseNavbar,
 };
