@@ -6,6 +6,8 @@ export default {
       colors: {
         "tw-gray": "#8593A9",
         fontColor: "#111729",
+
+        //  color pallet
         primary: {
           50: "#eff9ff",
           100: "#dff2ff",
@@ -19,6 +21,10 @@ export default {
           900: "#074b73",
           950: "#05304c",
         },
+        greenBlue: "#2364AA",
+        verdigris: "#73BFB8",
+        mikadoYellow: "#FEC601",
+        pumpkin: "#EA7317",
       },
     },
   },
