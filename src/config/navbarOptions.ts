@@ -3,7 +3,7 @@ import { images } from "../../public/images/images";
 export const optionsNavbar = [
   {
     image: images.iconPresentation,
-    title: "Descripción General",
+    title: "General",
     href: "/",
   },
   {
