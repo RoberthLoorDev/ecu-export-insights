@@ -8,7 +8,7 @@ const amountCurrent = formattAmountsMoney(amountCurrentMonth);
 const amountPast = formattAmountsMoney(amountPastMonth);
 ---
 
-<div class="h-full w-[60%] rounded-2xl border-2 border-[#E7EBF1] p-5">
+<div class="w-[60%] rounded-2xl border-2 border-[#E7EBF1] p-5">
      <h3 class="">Tendencia de exportaciones mensuales</h3>
 
      <div class="mt-5 flex gap-20">
@@ -39,7 +39,7 @@ const amountPast = formattAmountsMoney(amountPastMonth);
           >Restablecer</button
      >
 
-     <canvas id="id_montlyTrendLine" class="-mt-5 min-w-full"></canvas>
+     <canvas id="id_montlyTrendLine" class="-mt-5 max-h-[30rem] min-w-full"></canvas>
 </div>
 
 <script>

@@ -9,11 +9,11 @@ export const optionsNavbar = [
   {
     image: images.iconProduct,
     title: "Productos",
-    href: "/",
+    href: "/products",
   },
   {
     image: images.iconCategory,
     title: "Categorias",
-    href: "/",
+    href: "/categories",
   },
 ];
