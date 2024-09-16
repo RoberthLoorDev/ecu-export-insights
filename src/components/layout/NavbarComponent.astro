@@ -7,40 +7,43 @@ const currentPath = Astro.url.pathname;
 ---
 
 <section
-     class="navbar-container-hide | fixed z-50 flex h-full flex-col justify-between border-2 border-[#ECEFF5] bg-white px-[20px] pt-[30px]"
+     class="navbar-container fixed z-50 flex h-full flex-col justify-between border-2 border-[#ECEFF5] bg-white px-[20px] pt-[30px]"
      id="id_navbar"
 >
-     <div class="fixed flex h-screen flex-col justify-between pb-10">
+     <div class="flex h-screen flex-col justify-between">
           <div class="">
                <div class="flex justify-between">
-                    <div class="flex items-center gap-3">
+                    <div class="mb-5 flex items-center gap-3">
                          <Image src={images.iconNavbar} width={25} alt="Icon" class="ml-4 cursor-pointer" />
-                         <span class="hide-content hide-content-active | text-xl font-bold text-fontColor">EcuExport</span>
+                         <span class="hide-text | text-xl font-bold text-fontColor">EcuExport</span>
                     </div>
                </div>
 
-               <button class="button_navbar rotate-button-navbar | my-7 ml-4" id="id_button_navbar">
+               <!-- <button class="button_navbar rotate-button-navbar | my-7 ml-4" id="id_button_navbar">
                     <Image src={images.iconOpenCloseNavbar} width={30} height={10} alt="Open navbar" />
-               </button>
+               </button> -->
 
-               <!-- <span class="hide-content | mb-4 mt-[30px] block text-tw-gray">MENÚ PRINCIPAL</span> -->
+               <!-- <span class=" hide-content | mb-4 mt-[30px] block text-tw-gray">MENÚ PRINCIPAL</span> -->
 
                <!-- navbar options -->
                <nav class="flex flex-col">
                     {
                          optionsNavbar.map((option) => (
-                              <a
-                                   href={option.href}
-                                   class:list={[
-                                        "option-navbar-hidden option mb-1 flex w-[265px] items-center gap-2 rounded-lg px-3 py-3 text-[#818FA7] duration-200 hover:bg-primary-300 hover:text-white",
-                                        {
-                                             "page-active bg-primary-500 text-white": option.href === currentPath ? true : false,
-                                        },
-                                   ]}
-                              >
-                                   <Image src={option.image} width={30} alt="Alt" class="icon-navbar" />
-                                   <span class="hide-content hide-content-active | font-normal">{option.title}</span>
-                              </a>
+                              <div class="option-navbar relative flex flex-col">
+                                   <a
+                                        href={option.href}
+                                        class:list={[
+                                             "mb-1 flex items-center gap-2 rounded-lg px-3 py-3 text-[#818FA7]",
+                                             {
+                                                  "page-active bg-primary-500 text-white":
+                                                       option.href === currentPath ? true : false,
+                                             },
+                                        ]}
+                                   >
+                                        <Image src={option.image} width={30} alt="Alt" class="icon-navbar" />
+                                        <span class="hide-text font-normal">{option.title}</span>
+                                   </a>
+                              </div>
                          ))
                     }
                </nav>
@@ -55,62 +58,105 @@ const currentPath = Astro.url.pathname;
                <Image class="rounded-full" src={images.me} width={60} alt="Programador" />
 
                <div class="flex flex-col">
-                    <span class="hide-content hide-content-active | text-lg font-bold text-fontColor">Roberth Loor</span>
-                    <span class="hide-content hide-content-active | -mt-1 text-xs text-tw-gray duration-150 hover:text-sm"
-                         >Frontend Developer</span
-                    >
+                    <span class="hide-text text-lg font-bold text-fontColor">Roberth Loor</span>
+                    <span class="hide-text -mt-1 text-xs text-tw-gray">Frontend Developer</span>
                </div>
 
-               <Image
-                    class="hide-content hide-content-active | absolute right-3 top-3 rotate-45"
-                    src={images.arrow}
-                    width={22}
-                    alt="Conoce más"
-               />
+               <Image class="hide-text absolute right-3 top-3 rotate-45" src={images.arrow} width={22} alt="Conoce más" />
           </a>
      </div>
 </section>
 
 <script>
-     const toogleNavbar = () => {
-          console.log("Hola");
+     document.addEventListener("astro:page-load", () => {
+          const toogleNavbar = () => {
+               navbarContainer.classList.toggle("show");
 
-          //rotate icon
-          navbarButton.classList.toggle("rotated");
+               //hide text options in navbar
+               const texts = document.querySelectorAll(".hide-text")!;
+               texts.forEach((text) => {
+                    text.classList.toggle("show");
+               });
 
-          //hide text options in navbar
-          const texts = document.querySelectorAll(".hide-content")!;
-          texts.forEach((text) => {
-               text.classList.toggle("hide-content-active");
+               //background option
+               optionsNavbar.forEach((item) => {
+                    item.classList.toggle("show");
+               });
+
+               // //card user
+               cardUser.classList.toggle("card-user");
+          };
+
+          const navbarContainer = document.getElementById("id_navbar")!;
+          const contentPage = document.querySelector(".content-page")!;
+          const cardUser = document.querySelector(".card-user")!;
+          const optionsNavbar = document.querySelectorAll(".option")!;
+
+          //function
+
+          let isHoveredNavbar = false;
+          navbarContainer.addEventListener("mouseenter", () => {
+               if (!isHoveredNavbar) {
+                    toogleNavbar();
+                    isHoveredNavbar = true;
+               }
           });
 
-          //background option
-          optionsNavbar.forEach((item) => {
-               item.classList.toggle("option-navbar-hidden");
+          navbarContainer.addEventListener("mouseleave", () => {
+               if (isHoveredNavbar) {
+                    toogleNavbar();
+                    isHoveredNavbar = false;
+               }
           });
-
-          // width navbar
-          navbarContainer.classList.toggle("navbar-container");
-          navbarContainer.classList.toggle("navbar-container-hide");
-
-          //margin content page
-          contentPage.classList.toggle("content-page-navbar-expanded");
-
-          //card user
-          cardUser.classList.toggle("card-user");
-     };
-
-     const navbarContainer = document.getElementById("id_navbar")!;
-     const contentPage = document.querySelector(".content-page")!;
-     const cardUser = document.querySelector(".card-user")!;
-     const optionsNavbar = document.querySelectorAll(".option")!;
-
-     //function
-     const navbarButton = document.getElementById("id_button_navbar")!;
-     navbarButton.addEventListener("click", toogleNavbar);
+     });
 </script>
 
 <style scoped>
+     .navbar-container {
+          width: 100px;
+          transition: width 0.2s ease-in-out;
+     }
+
+     .navbar-container.show {
+          width: 320px;
+          transition: width 0.2s ease-in-out;
+     }
+
+     .hide-text {
+          display: inline-block;
+          overflow: hidden;
+          max-width: 1px;
+          white-space: nowrap;
+          transition: max-width 0.2s ease-in-out;
+     }
+
+     .hide-text.show {
+          overflow: hidden;
+          visibility: visible;
+          max-width: 550px;
+          transition: max-width 0.2s ease-in-out;
+     }
+
+     .option-navbar::after {
+          content: "";
+          position: absolute;
+          bottom: 5px;
+          background-color: #039de3;
+          width: 0px;
+          height: 3px;
+          transition:
+               width 0.2s ease-in-out,
+               height 0.2s ease-in-out;
+          margin-left: 10px;
+     }
+
+     .option-navbar:hover::after {
+          width: 250px;
+          height: 3px;
+     }
+
+     /* ---=----- */
+
      .icon-navbar {
           filter: brightness(0) invert(0.7);
           transition: filter 0.3s ease;
@@ -128,38 +174,10 @@ const currentPath = Astro.url.pathname;
           }
      }
 
-     .navbar-container {
-          min-width: 320px;
-          transition: min-width 0.2s ease-in-out;
-     }
-
-     .navbar-container-hide {
-          min-width: 100px;
-          transition: min-width 0.2s ease-in-out;
-     }
-
      .card-user {
           width: 80px;
           height: 80px;
           margin-left: -8px;
           box-shadow: none;
-     }
-
-     .option-navbar-hidden {
-          max-width: 55px;
-     }
-
-     .hide-content-active {
-          visibility: hidden;
-          transition: visibility 0.1s ease-in-out;
-     }
-
-     .rotate-button-navbar {
-          transform: rotate(180deg);
-          transition: transform 0.3s ease-in-out;
-     }
-
-     .rotate-button-navbar.rotated {
-          transform: rotate(360deg);
      }
 </style>
