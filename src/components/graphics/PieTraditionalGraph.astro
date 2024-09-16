@@ -10,8 +10,10 @@
 
      const { dataNoTraditional: countDataTraditional, dataTraditional: countDataNoTraditional } = getTradicionalData("03");
 
-     document.addEventListener("DOMContentLoaded", () => {
+     const inicializeChart = () => {
           const ctx = document.getElementById("id_montlhyPieChart") as HTMLCanvasElement;
+          if (!ctx) return;
+
           const chart = new Chart(ctx, {
                type: "pie",
                data: {
@@ -46,5 +48,7 @@
                     },
                },
           });
-     });
+     };
+
+     document.addEventListener("astro:page-load", inicializeChart);
 </script>

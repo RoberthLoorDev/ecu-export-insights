@@ -9,8 +9,10 @@
 
      const { dataPetro: countDataPetro, dataNoPetro: countDataNoPetro } = getPetroAndNoPetroData("03");
 
-     document.addEventListener("DOMContentLoaded", () => {
+     document.addEventListener("astro:page-load", () => {
           const ctx = document.getElementById("id_montlhyDoughnutChart") as HTMLCanvasElement;
+          if (!ctx) return;
+
           const chart = new Chart(ctx, {
                type: "doughnut",
                data: {
