@@ -21,6 +21,7 @@ import PieTraditionalGraph from "./PieTraditionalGraph.astro";
 
      document.addEventListener("astro:page-load", () => {
           const ctx = document.getElementById("id_monthlyBarsChart") as HTMLCanvasElement;
+          if (!ctx) return;
 
           new Chart(ctx, {
                type: "bar",

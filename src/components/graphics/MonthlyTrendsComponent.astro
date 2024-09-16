@@ -59,6 +59,8 @@ const amountPast = formattAmountsMoney(amountPastMonth);
 
      const inicializeChart = () => {
           const ctx = document.getElementById("id_montlyTrendLine") as HTMLCanvasElement;
+          if (!ctx) return;
+
           const chart = new Chart(ctx, {
                type: "line",
                data: {

@@ -12,6 +12,8 @@
 
      const inicializeChart = () => {
           const ctx = document.getElementById("id_montlhyPieChart") as HTMLCanvasElement;
+          if (!ctx) return;
+
           const chart = new Chart(ctx, {
                type: "pie",
                data: {
