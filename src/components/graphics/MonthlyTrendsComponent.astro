@@ -56,7 +56,8 @@ const amountPast = formattAmountsMoney(amountPastMonth);
      const { chaptersArray: month2Chapter, valuesArray: month2Values } = extractAmountAndChaptersMonth("02");
 
      //drawing the graphic
-     document.addEventListener("DOMContentLoaded", () => {
+
+     const inicializeChart = () => {
           const ctx = document.getElementById("id_montlyTrendLine") as HTMLCanvasElement;
           const chart = new Chart(ctx, {
                type: "line",
@@ -151,5 +152,7 @@ const amountPast = formattAmountsMoney(amountPastMonth);
           document.querySelector(".button-reset-zoom")?.addEventListener("click", () => {
                chart.resetZoom();
           });
-     });
+     };
+
+     document.addEventListener("astro:page-load", inicializeChart);
 </script>
