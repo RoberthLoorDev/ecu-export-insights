@@ -79,7 +79,13 @@ The application uses open data from the Ecuadorian government, specifically:
 
 ## About the Developer
 
-This project is part of my professional portfolio as a frontend developer. To see more of my work, please visit [my portfolio website](https://portfolio-roberth.vercel.app/).
+Roberth Loor is a passionate frontend developer with 3 years of experience in web and mobile application development. As an Information Technology Engineer, he brings a blend of technical expertise and creative problem-solving to every project.
+
+Roberth believes that "In the world of development, every line of code is an opportunity to innovate and create something extraordinary."
+
+His work goes beyond just writing code; it's about crafting experiences that make a difference. This project, EcuExport Insights, is a testament to his commitment to pushing the boundaries of what's possible in web development.
+
+To see more of Roberth's innovative projects and get in touch, visit his portfolio at [https://portfolio-roberth.vercel.app/](https://portfolio-roberth.vercel.app/).
 
 ## Contributions
 
