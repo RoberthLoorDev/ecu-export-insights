@@ -1,54 +1,96 @@
-# Astro Starter Kit: Basics
+# EcuExport Insights
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Overview
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+EcuExport Insights is a cutting-edge web application designed to provide comprehensive and interactive visualizations of export data from Ecuador to the United States. This project showcases advanced front-end development skills and innovative use of AI technologies in data analysis and presentation.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Key Features
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- **Interactive Dashboard**: Dynamically visualizes complex export data.
+- **AI-Powered Analysis**: Utilizes artificial intelligence for intuitive data interpretation.
+- **High Performance**: Built for speed and efficiency using modern web technologies.
+- **Sleek UI/UX**: Offers a modern, user-friendly interface that sets a new standard for data visualization applications.
 
-## 🚀 Project Structure
+## Data Source
 
-Inside of your Astro project, you'll see the following folders and files:
+The application uses open data from the Ecuadorian government, specifically:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Dataset: [Exportaciones a Estados Unidos de América](https://datosabiertos.gob.ec/dataset/exportaciones-a-estados-unidos-de-america)
+- Resource: [25dda49f-d303-4f98-807d-a5567867ddba](https://datosabiertos.gob.ec/dataset/exportaciones-a-estados-unidos-de-america/resource/25dda49f-d303-4f98-807d-a5567867ddba)
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Technical Stack
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Framework**: Astro
+- **Styling**: Tailwind CSS
+- **Charts**: Chart.js
+- **AI Integration**: Custom AI model for data interpretation (planned feature)
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Unique Selling Points
 
-## 🧞 Commands
+1. **AI-Driven Insights**: Unlike traditional dashboards, EcuExport Insights leverages AI to automatically interpret user queries, adjusting visualizations in real-time.
+2. **Serverless Architecture**: Demonstrates advanced front-end capabilities by operating without a traditional backend.
+3. **Performance Optimized**: Built with speed as a primary focus, ensuring smooth user experience even with large datasets.
 
-All commands are run from the root of the project, from a terminal:
+## Getting Started
+
+### Prerequisites
+
+- Node.js (LTS version recommended)
+- npm (comes with Node.js)
+
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/RoberthLoorDev/ecu-export-insights.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd ecu-export-insights
+   ```
+3. Install dependencies:
+   ```
+   npm install
+   ```
+   Note: If prompted, confirm the installation of Astro.
+
+### Running the Application
+
+- For development:
+  ```
+  npm run dev
+  ```
+  This will start the local development server at `localhost:4321`.
+
+### Additional Commands
 
 | Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
+| ------------------------- | ------------------------------------------------ |
+| `npm run build`           | Build the production site to `./dist/`           |
+| `npm run preview`         | Preview the build locally before deploying       |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Future Enhancements
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Implementation of AI-powered natural language processing for query interpretation.
+- Expansion of dataset to include more countries and commodities.
+- Integration with real-time data sources for up-to-the-minute insights.
+
+## About the Developer
+
+Roberth Loor is a passionate frontend developer with 3 years of experience in web and mobile application development. As an Information Technology Engineer, he brings a blend of technical expertise and creative problem-solving to every project.
+
+Roberth believes that "In the world of development, every line of code is an opportunity to innovate and create something extraordinary."
+
+His work goes beyond just writing code; it's about crafting experiences that make a difference. This project, EcuExport Insights, is a testament to his commitment to pushing the boundaries of what's possible in web development.
+
+To see more of Roberth's innovative projects and get in touch, visit his portfolio at [https://portfolio-roberth.vercel.app/](https://portfolio-roberth.vercel.app/).
+
+## Contributions
+
+While this is primarily a portfolio project, I welcome feedback and suggestions. Please feel free to open an issue or submit a pull request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
