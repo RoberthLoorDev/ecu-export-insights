@@ -6,8 +6,14 @@ import { optionsNavbar } from "../../config/navbarOptions";
 const currentPath = Astro.url.pathname;
 ---
 
+<button
+     class="button-open-navbar fixed bottom-5 right-5 grid h-14 w-14 cursor-pointer place-items-center rounded-full bg-primary-600 shadow-xl duration-150 hover:scale-110 active:bg-primary-900 md:hidden"
+>
+     <Image src={images.barsNavbar} width={25} height={25} alt="Open Navbar" class="invert-img" />
+</button>
+
 <section
-     class="navbar-container fixed z-50 flex h-full flex-col justify-between border-2 border-[#ECEFF5] bg-white px-[20px] pt-[30px]"
+     class="navbar-container fixed z-50 hidden h-full flex-col justify-between border-2 border-[#ECEFF5] bg-white px-[20px] pt-[30px] md:flex"
      id="id_navbar"
 >
      <div class="flex h-screen flex-col justify-between">
@@ -22,7 +28,6 @@ const currentPath = Astro.url.pathname;
                <!-- <button class="button_navbar rotate-button-navbar | my-7 ml-4" id="id_button_navbar">
                     <Image src={images.iconOpenCloseNavbar} width={30} height={10} alt="Open navbar" />
                </button> -->
-
                <!-- <span class=" hide-content | mb-4 mt-[30px] block text-tw-gray">MENÚ PRINCIPAL</span> -->
 
                <!-- navbar options -->
@@ -91,10 +96,17 @@ const currentPath = Astro.url.pathname;
           const contentPage = document.querySelector(".content-page")!;
           const cardUser = document.querySelector(".card-user")!;
           const optionsNavbar = document.querySelectorAll(".option")!;
+          const openNavbarResponsive = document.querySelector(".button-open-navbar");
 
-          //function
-
+          //control opening of the navabr
           let isHoveredNavbar = false;
+
+          openNavbarResponsive?.addEventListener("click", () => {
+               navbarContainer.classList.toggle("hidden");
+               toogleNavbar();
+               isHoveredNavbar = true;
+          });
+
           navbarContainer.addEventListener("mouseenter", () => {
                if (!isHoveredNavbar) {
                     toogleNavbar();
@@ -179,5 +191,9 @@ const currentPath = Astro.url.pathname;
           height: 80px;
           margin-left: -8px;
           box-shadow: none;
+     }
+
+     .invert-img {
+          filter: brightness(0) invert(1);
      }
 </style>

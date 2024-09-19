@@ -9,7 +9,7 @@ const { mostExportedCategoryActualMonth, mostExportedCategoryPastMonth } = getMa
 ---
 
 <!-- cards -->
-<seciton class="cards-resume-container flex gap-4 overflow-x-auto pb-2">
+<seciton class="cards-resume-container flex max-w-[calc(100vw-30px)] gap-4 overflow-x-auto pb-2 md:max-w-[calc(100vw-150px)]">
      <CardResumeComponent
           title="Comparativo de Exportaciones: Febrero vs. Marzo"
           quantity={countActualMonthData}
@@ -39,10 +39,6 @@ const { mostExportedCategoryActualMonth, mostExportedCategoryPastMonth } = getMa
 </seciton>
 
 <style>
-     .cards-resume-container {
-          max-width: calc(100vw - 150px);
-     }
-
      .cards-resume-container::-webkit-scrollbar {
           height: 5px;
      }
