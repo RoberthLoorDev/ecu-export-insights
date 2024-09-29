@@ -29,7 +29,7 @@ const quantityIsNumber = typeof quantity === "number";
 const mainValue = quantityIsNumber ? formattingLargeQuantities(quantity) : quantity;
 ---
 
-<div class="flex h-[160px] min-w-[300px] flex-1 flex-col justify-between rounded-2xl border-2 border-[#E7EBF1] bg-white p-5">
+<div class="flex h-[160px] min-w-[300px] flex-1 flex-col justify-between rounded-2xl bg-white p-5 shadow-md">
      <span class="leading-5 text-tw-gray">{title} </span>
      <div class="flex items-end">
           <span class="text-3xl font-extrabold text-fontColor">{mainValue}</span>
