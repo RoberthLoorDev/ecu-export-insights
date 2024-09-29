@@ -1,12 +1,20 @@
 ---
 import BarCategoriesTrendsGraph from "../components/graphics/BarCategoriesTrendsGraph.astro";
+import DoughnutPetroGraph from "../components/graphics/DoughnutPetroGraph.astro";
 import MonthlyTrendsComponent from "../components/graphics/MonthlyTrendsComponent.astro";
+import PieTraditionalGraph from "../components/graphics/PieTraditionalGraph.astro";
+import PolarAreaGraph from "../components/graphics/PolarAreaGraph.astro";
 ---
 
 <!-- line and porcent graphic -->
-<section class="mt-2 flex text-fontColor">
+<section class="mt-2 flex flex-col gap-4 text-fontColor">
      <div class="grid w-full gap-4 md:max-h-[42rem] md:grid-cols-5">
           <MonthlyTrendsComponent />
           <BarCategoriesTrendsGraph />
+     </div>
+     <div class="grid grid-cols-3 gap-5">
+          <PieTraditionalGraph />
+          <DoughnutPetroGraph />
+          <PolarAreaGraph />
      </div>
 </section>
