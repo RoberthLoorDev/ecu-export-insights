@@ -27,7 +27,7 @@ export const getMostExportedProductsBar = (month: string) => {
   //sort the data
   groupedData.sort((a, b) => b.SumOfFOBThousands - a.SumOfFOBThousands);
 
-  const increasedExports = groupedData.slice(0, 5);
+  const increasedExports = groupedData.slice(0, 10);
   const onlyCategories = increasedExports.map((item) => item.PPN4BCEDescrip);
   const onlyValues = increasedExports.map((item) => item.SumOfFOBThousands);
 
