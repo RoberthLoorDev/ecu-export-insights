@@ -27,12 +27,9 @@ export const getMostWeightCategories = (
   //order data
   groupedData.sort((a, b) => b.weight - a.weight);
   const partData = groupedData.slice(0, numberOfData);
-  console.log(partData);
 
   const onlyCategories = partData.map((item) => item.category);
   const onlyWeights = partData.map((item) => item.weight);
-
-  console.log(onlyCategories);
 
   return {
     onlyCategories,
